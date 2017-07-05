@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:padding="15dp"
+        android:id="@+id/ScrollView"
+        android:layout_above="@+id/GridLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="false">>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="25">
+
+            <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textView25"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <TextView
+                android:text="Register Data Format"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textView26"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <TextView
+                android:text="Modbus 1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textView1"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/spinner49" />
+
+            <TextView
+                android:text="Modbus 2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner50" />
+
+            <TextView
+                android:text="Modbus 3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner51"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner52"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner53"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner54"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner55"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner56"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner57"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner58"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner59"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner60"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner61"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView14"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner62"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner63"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner64"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView17"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner65"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView18"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner66"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView19"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner67"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView20"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner68"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView21"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner69"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView22"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner70"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView23"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner71"
+                android:dropDownWidth="match_parent" />
+
+            <TextView
+                android:text="Modbus 24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView24"
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+            <Spinner
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner72"
+                android:dropDownWidth="match_parent" />
+
+        </GridLayout>
+    </ScrollView>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:id="@+id/GridLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:text="LEFT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:onClick="mvLeft" />
+
+        <Button
+            android:text="Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:onClick="mvRight" />
+
+    </GridLayout>
+
+</RelativeLayout>

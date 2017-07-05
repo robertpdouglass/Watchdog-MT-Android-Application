@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:id="@+id/local_input_units"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Units of Measure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView32"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_gravity="bottom|center_horizontal"
+        android:padding="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:id="@+id/GridLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:text="LEFT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:onClick="mvLeft" />
+
+        <Button
+            android:text="Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2"
+            android:onClick="mvRight"
+            android:enabled="false"
+            android:clickable="false" />
+
+    </GridLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:padding="15dp"
+        android:id="@+id/ScrollView"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/GridLayout">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="8">
+
+            <TextView
+                android:text="Local Input 1"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textView1"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext1" />
+
+            <TextView
+                android:text="Local Input 2"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView2"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext2" />
+
+            <TextView
+                android:text="Local Input 3"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView3"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext3" />
+
+            <TextView
+                android:text="Local Input 4"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView4"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext4" />
+
+            <TextView
+                android:text="Local Input 5"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView5"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext5" />
+
+            <TextView
+                android:text="Local Input 6"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView6"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext6" />
+
+            <TextView
+                android:text="Local Input 7"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView7"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext7" />
+
+            <TextView
+                android:text="Local Input 8"
+                android:layout_width="wrap_content"
+                android:id="@+id/textView8"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:layout_height="46dp" />
+
+            <EditText
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/edittext8" />
+
+        </GridLayout>
+    </ScrollView>
+</RelativeLayout>
