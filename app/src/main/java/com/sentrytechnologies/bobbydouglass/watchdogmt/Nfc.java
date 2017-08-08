@@ -75,7 +75,7 @@ public class Nfc extends AppCompatActivity {
             ndefFormatable.connect();
             ndefFormatable.format(ndefMessage);
             ndefFormatable.close();
-            info.setText("Changes Sent To Watchdog MT");
+            info.setText("Changes Sent To Watchdog MT, Please Wait For Changes To Be Sent To Server Before Exiting");
             save();
         } catch (Exception e) {}
     }
@@ -96,7 +96,7 @@ public class Nfc extends AppCompatActivity {
                 ndef.writeNdefMessage(ndefMessage);
                 ndef.close();
 
-                info.setText("Changes Sent To Watchdog MT!");
+                info.setText("Changes Sent To Watchdog MT, Please Wait For Changes To Be Sent To Server Before Exiting");
                 save();
             }
         } catch (Exception e) {
@@ -108,42 +108,22 @@ public class Nfc extends AppCompatActivity {
         ArrayList<NdefRecord> ndef = new ArrayList<NdefRecord>();
         if(Home.Selected == 1) {
             for (int i = 0; i < Program.Size_1; i++) {
-                if(Program.Changes_Bool_1[i]) {
-                    ndef.add(createRecord(Program.Changes_1[i].getAddress(), Program.Changes_1[i].getValue1()));
-                }
-            }
-            for (int i = 0; i < Program.Size_2; i++) {
-                if(Program.Changes_Bool_2[i]) {
-                    ndef.add(createRecord(Program.Changes_2[i].getAddress(), Program.Changes_2[i].getValue2()));
-                }
+                if(Program.Changes_Bool_1[i])
+                    ndef.add(createRecord1(Program.Changes_1[i].getAddress(), Program.Changes_1[i].getValue1()));
             }
             for (int i = 0; i < Program.Size_3; i++) {
-                if(Program.Changes_Bool_3[i]) {
-                    ndef.add(createRecord(Program.Changes_3[i].getAddress(), Program.Changes_3[i].getValue3()));
-                }
-            }
-            for (int i = 0; i < Program.Size_4; i++) {
-                if(Program.Changes_Bool_4[i]) {
-                    ndef.add(createRecord(Program.Changes_4[i].getAddress(), Program.Changes_4[i].getValue4()));
-                }
+                if(Program.Changes_Bool_3[i])
+                    ndef.add(createRecord3(Program.Changes_3[i].getAddress(), Program.Changes_3[i].getValue3()));
             }
         }
         else {
             for (int i = 0; i < Program2.Size_1; i++) {
                 if(Program2.Changes_Bool_1[i])
-                    ndef.add(createRecord(Program2.Changes_1[i].getAddress(), Program2.Changes_1[i].getValue1()));
-            }
-            for (int i = 0; i < Program2.Size_2; i++) {
-                if(Program2.Changes_Bool_2[i])
-                    ndef.add(createRecord(Program2.Changes_2[i].getAddress(), Program2.Changes_2[i].getValue2()));
+                    ndef.add(createRecord1(Program2.Changes_1[i].getAddress(), Program2.Changes_1[i].getValue1()));
             }
             for (int i = 0; i < Program2.Size_3; i++) {
                 if(Program2.Changes_Bool_3[i])
-                    ndef.add(createRecord(Program2.Changes_3[i].getAddress(), Program2.Changes_3[i].getValue3()));
-            }
-            for (int i = 0; i < Program2.Size_4; i++) {
-                if(Program2.Changes_Bool_4[i])
-                    ndef.add(createRecord(Program2.Changes_4[i].getAddress(), Program2.Changes_4[i].getValue4()));
+                    ndef.add(createRecord3(Program2.Changes_3[i].getAddress(), Program2.Changes_3[i].getValue3()));
             }
         }
         NdefRecord[] ndefr = new NdefRecord[ndef.size()];
@@ -154,7 +134,7 @@ public class Nfc extends AppCompatActivity {
         return ndefMessage;
     }
 
-    private NdefRecord createRecord(int add, int val) {
+    private NdefRecord createRecord1(int add, short val) {
         final int BYTE_SIZE = 2;
         final int BYTE_ARRAY = 11;
 
@@ -174,7 +154,7 @@ public class Nfc extends AppCompatActivity {
         return new NdefRecord(NdefRecord.TNF_MIME_MEDIA, NdefRecord.RTD_TEXT, null, payload.toByteArray());
     }
 
-    private NdefRecord createRecord(int add, long val) {
+    private NdefRecord createRecord3(int add, float val) {
         final int BYTE_SIZE = 4;
         final int BYTE_ARRAY = 12;
 
@@ -191,91 +171,40 @@ public class Nfc extends AppCompatActivity {
         byte[] valBytes = ByteBuffer.allocate(4).putFloat(val).array();
         for (int i = 0; i < 4; i++)
             payload.write(valBytes[i]);
-
-        return new NdefRecord(NdefRecord.TNF_MIME_MEDIA, NdefRecord.RTD_TEXT, null, payload.toByteArray());
-    }
-
-    private NdefRecord createRecord(int add, float val) {
-        final int BYTE_SIZE = 4;
-        final int BYTE_ARRAY = 12;
-
-        ByteArrayOutputStream payload = new ByteArrayOutputStream(BYTE_ARRAY);
-
-        payload.write('M');
-        payload.write('1');
-        payload.write(16);
-        payload.write((byte) ((add >> 8) & 0x00ff));
-        payload.write((byte) (add & 0x00ff));
-        payload.write(0);
-        payload.write(1);
-        payload.write(BYTE_SIZE);
-        byte[] valBytes = ByteBuffer.allocate(4).putFloat(val).array();
-        for (int i = 0; i < 4; i++)
-            payload.write(valBytes[i]);
-
-        return new NdefRecord(NdefRecord.TNF_MIME_MEDIA, NdefRecord.RTD_TEXT, null, payload.toByteArray());
-    }
-
-    private NdefRecord createRecord(int add, String val) {
-        final int BYTE_SIZE = 16;
-        final int BYTE_ARRAY = 24;
-
-        ByteArrayOutputStream payload = new ByteArrayOutputStream(BYTE_ARRAY);
-
-        payload.write('M');
-        payload.write('1');
-        payload.write(16);
-        payload.write((byte) ((add >> 8) & 0x00ff));
-        payload.write((byte) (add & 0x00ff));
-        payload.write(0);
-        payload.write(1);
-        payload.write(BYTE_SIZE);
-        for(int i = 0; i < 16; i++) {
-            if(val.length() > i)
-                payload.write(val.charAt(i));
-            else
-                payload.write(0);
-        }
 
         return new NdefRecord(NdefRecord.TNF_MIME_MEDIA, NdefRecord.RTD_TEXT, null, payload.toByteArray());
     }
 
     public void save() {
+        JSON json = new JSON();
         if(Home.Selected == 1) {
             for (int i = 0; i < Program.Size_1; i++) {
-                if (Program.Changes_Bool_1[i])
+                if (Program.Changes_Bool_1[i]) {
                     Program.Changes_1[i].save();
-            }
-            for (int i = 0; i < Program.Size_2; i++) {
-                if (Program.Changes_Bool_2[i])
-                    Program.Changes_2[i].save();
+                    json.addModbus(Program.Changes_1[i]);
+                }
             }
             for (int i = 0; i < Program.Size_3; i++) {
-                if (Program.Changes_Bool_3[i])
+                if (Program.Changes_Bool_3[i]) {
                     Program.Changes_3[i].save();
-            }
-            for (int i = 0; i < Program.Size_4; i++) {
-                if (Program.Changes_Bool_4[i])
-                    Program.Changes_4[i].save();
+                    json.addModbus(Program.Changes_3[i]);
+                }
             }
         }
         else {
             for (int i = 0; i < Program2.Size_1; i++) {
-                if (Program2.Changes_Bool_1[i])
+                if (Program2.Changes_Bool_1[i]) {
                     Program2.Changes_1[i].save();
-            }
-            for (int i = 0; i < Program2.Size_2; i++) {
-                if (Program2.Changes_Bool_2[i])
-                    Program2.Changes_2[i].save();
+                    json.addModbus(Program2.Changes_1[i]);
+                }
             }
             for (int i = 0; i < Program2.Size_3; i++) {
-                if (Program2.Changes_Bool_3[i])
+                if (Program2.Changes_Bool_3[i]) {
                     Program2.Changes_3[i].save();
-            }
-            for (int i = 0; i < Program2.Size_4; i++) {
-                if (Program2.Changes_Bool_4[i])
-                    Program2.Changes_4[i].save();
+                    json.addModbus(Program2.Changes_3[i]);
+                }
             }
         }
+        json.send();
     }
 }

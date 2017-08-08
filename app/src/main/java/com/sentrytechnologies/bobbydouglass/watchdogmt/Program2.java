@@ -23,14 +23,10 @@ public class Program2 extends AppCompatActivity {
     int loadSpinners =                          0;
 
     public static final int Size_1 =            120;
-    public static final int Size_2 =            0;
     public static final int Size_3 =            72;
-    public static final int Size_4 =            48;
 
     public static Modbus[] Changes_1 =          new Modbus[Size_1];
-    public static Modbus[] Changes_2 =          new Modbus[Size_2];
     public static Modbus[] Changes_3 =          new Modbus[Size_3];
-    public static Modbus[] Changes_4 =          new Modbus[Size_4];
 
     public static boolean[] Changes_Bool_1 =   {false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
@@ -47,17 +43,10 @@ public class Program2 extends AppCompatActivity {
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false};
-    public static boolean[] Changes_Bool_2 =    null;
     public static boolean[] Changes_Bool_3 =   {false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false};
-    public static boolean[] Changes_Bool_4 =   {false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false,
@@ -79,7 +68,6 @@ public class Program2 extends AppCompatActivity {
                                                 10204,  10210,  10216,  10222,  10228,  10234,  10240,  10246,
                                                 10252,  10258,  10264,  10270,  10276,  10282,  10288,  10294,
                                                 10300,  10306,  10312,  10318,  10324,  10330,  10336,  10342};
-    int[] Address_2 =                           null;
     int[] Address_3 =                          {14102,  14107,  14112,  14117,  14122,  14127,  14132,  14137,
                                                 14142,  14147,  14152,  14157,  14162,  14167,  14172,  14177,
                                                 14182,  14187,  14192,  14197,  14202,  14207,  14212,  14217,
@@ -89,12 +77,6 @@ public class Program2 extends AppCompatActivity {
                                                 14101,  14106,  14111,  14116,  14121,  14126,  14131,  14136,
                                                 14141,  14146,  14151,  14156,  14161,  14166,  14171,  14176,
                                                 14181,  14186,  14191,  14196,  14201,  14206,  14211,  14216};
-    int[] Address_4 =                          {16008,  16009,  16010,  16011,  16012,  16013,  16014,  16015,
-                                                16016,  16017,  16018,  16019,  16020,  16021,  16022,  16023,
-                                                16024,  16025,  16026,  16027,  16028,  16029,  16030,  16031,
-                                                15608,  15609,  15610,  15611,  15612,  15613,  15614,  15615,
-                                                15616,  15617,  15618,  15619,  15620,  15621,  15622,  15623,
-                                                15624,  15625,  15626,  15627,  15628,  15629,  15630,  15631};
 
     boolean changes_made =                      false;
 
@@ -131,9 +113,6 @@ public class Program2 extends AppCompatActivity {
                 case 7:
                     Screen7();
                     break;
-                case 8:
-                    Screen8();
-                    break;
             }
         }
     }
@@ -159,12 +138,6 @@ public class Program2 extends AppCompatActivity {
                     break;
                 case 7:
                     Screen7();
-                    break;
-                case 8:
-                    Screen8();
-                    break;
-                case 9:
-                    Screen9();
                     break;
             }
         }
@@ -198,14 +171,12 @@ public class Program2 extends AppCompatActivity {
             id[i].addTextChangedListener(new TextWatcher() {
                 @Override
                 public void afterTextChanged(Editable s) {}
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count != 0 && count < 17) {
-                        Changes_1[index].setValue(Integer.parseInt(s.toString()));
+                        Changes_1[index].setValue1(Short.parseShort(s.toString()));
                         Changes_Bool_1[index] = true;
                         changes_made = true;
                     }
@@ -276,14 +247,12 @@ public class Program2 extends AppCompatActivity {
             id[j].addTextChangedListener(new TextWatcher() {
                 @Override
                 public void afterTextChanged(Editable s) {}
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count != 0 && count < 17) {
-                        Changes_1[index].setValue(Integer.parseInt(s.toString()));
+                        Changes_1[index].setValue1(Short.parseShort(s.toString()));
                         Changes_Bool_1[index] = true;
                         changes_made = true;
                     }
@@ -395,7 +364,7 @@ public class Program2 extends AppCompatActivity {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count != 0 && count < 17) {
-                        Changes_3[index].setValue(Float.parseFloat(s.toString()));
+                        Changes_3[index].setValue3(Float.parseFloat(s.toString()));
                         Changes_Bool_3[index] = true;
                         changes_made = true;
                     }
@@ -452,7 +421,7 @@ public class Program2 extends AppCompatActivity {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count != 0 && count < 17) {
-                        Changes_3[indexL].setValue(Float.parseFloat(s.toString()));
+                        Changes_3[indexL].setValue3(Float.parseFloat(s.toString()));
                         Changes_Bool_3[indexL] = true;
                         changes_made = true;
                     }
@@ -471,96 +440,8 @@ public class Program2 extends AppCompatActivity {
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(count != 0 && count < 17) {
-                        Changes_3[indexL].setValue(Float.parseFloat(s.toString()));
+                        Changes_3[indexL].setValue3(Float.parseFloat(s.toString()));
                         Changes_Bool_3[indexL] = true;
-                        changes_made = true;
-                    }
-                }
-            });
-        }
-    }
-
-    public void Screen8() {
-        if(!loaded[7]) {
-            loaded[7] = true;
-            for(int i = 0; i < 24; i++)
-                Changes_4[i] = new Modbus(getApplicationContext(), Address_4[i], 4);
-        }
-
-        setContentView(R.layout.modbus_name);
-
-        EditText name[] =  {(EditText) findViewById(R.id.edittext1),    (EditText) findViewById(R.id.edittext2),
-                            (EditText) findViewById(R.id.edittext3),    (EditText) findViewById(R.id.edittext4),
-                            (EditText) findViewById(R.id.edittext5),    (EditText) findViewById(R.id.edittext6),
-                            (EditText) findViewById(R.id.edittext7),    (EditText) findViewById(R.id.edittext8),
-                            (EditText) findViewById(R.id.edittext9),    (EditText) findViewById(R.id.edittext10),
-                            (EditText) findViewById(R.id.edittext11),   (EditText) findViewById(R.id.edittext12),
-                            (EditText) findViewById(R.id.edittext13),   (EditText) findViewById(R.id.edittext14),
-                            (EditText) findViewById(R.id.edittext15),   (EditText) findViewById(R.id.edittext16),
-                            (EditText) findViewById(R.id.edittext17),   (EditText) findViewById(R.id.edittext18),
-                            (EditText) findViewById(R.id.edittext19),   (EditText) findViewById(R.id.edittext20),
-                            (EditText) findViewById(R.id.edittext21),   (EditText) findViewById(R.id.edittext22),
-                            (EditText) findViewById(R.id.edittext23),   (EditText) findViewById(R.id.edittext24)};
-
-        for(int i = 0; i < 24; i++) {
-            name[i].setText("" + Changes_4[i].getValue4());
-            final int index = i;
-            name[i].addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(Editable s) {}
-
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if(count != 0 && count < 17) {
-                        Changes_4[index].setValue(Integer.parseInt(s.toString()));
-                        Changes_Bool_4[index] = true;
-                        changes_made = true;
-                    }
-                }
-            });
-        }
-    }
-
-    public void Screen9() {
-        if(!loaded[8]) {
-            loaded[8] = true;
-            for(int i = 24; i < 48; i++)
-                Changes_4[i] = new Modbus(getApplicationContext(), Address_4[i], 4);
-        }
-
-        setContentView(R.layout.modbus_units);
-
-        EditText uom[] =    {(EditText) findViewById(R.id.edittext1),   (EditText) findViewById(R.id.edittext2),
-                            (EditText) findViewById(R.id.edittext3),    (EditText) findViewById(R.id.edittext4),
-                            (EditText) findViewById(R.id.edittext5),    (EditText) findViewById(R.id.edittext6),
-                            (EditText) findViewById(R.id.edittext7),    (EditText) findViewById(R.id.edittext8),
-                            (EditText) findViewById(R.id.edittext9),    (EditText) findViewById(R.id.edittext10),
-                            (EditText) findViewById(R.id.edittext11),   (EditText) findViewById(R.id.edittext12),
-                            (EditText) findViewById(R.id.edittext13),   (EditText) findViewById(R.id.edittext14),
-                            (EditText) findViewById(R.id.edittext15),   (EditText) findViewById(R.id.edittext16),
-                            (EditText) findViewById(R.id.edittext17),   (EditText) findViewById(R.id.edittext18),
-                            (EditText) findViewById(R.id.edittext19),   (EditText) findViewById(R.id.edittext20),
-                            (EditText) findViewById(R.id.edittext21),   (EditText) findViewById(R.id.edittext22),
-                            (EditText) findViewById(R.id.edittext23),   (EditText) findViewById(R.id.edittext24)};
-
-        for(int j = 0, i = 24; j < 24; j++, i++) {
-            uom[j].setText("" + Changes_4[i].getValue4());
-            final int index = i;
-            uom[j].addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(Editable s) {}
-
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if(count != 0 && count < 17) {
-                        Changes_4[index].setValue(s.toString());
-                        Changes_Bool_4[index] = true;
                         changes_made = true;
                     }
                 }
@@ -647,7 +528,7 @@ public class Program2 extends AppCompatActivity {
                     break;
             }
             if (loadSpinners > 23) {
-                Changes_1[i].setValue(pos);
+                Changes_1[i].setValue1((short) pos);
                 Changes_Bool_1[i] = true;
                 changes_made = true;
             } else {
@@ -740,7 +621,7 @@ public class Program2 extends AppCompatActivity {
                     break;
             }
             if (loadSpinners > 23) {
-                Changes_1[i].setValue(pos);
+                Changes_1[i].setValue1((short) pos);
                 Changes_Bool_1[i] = true;
                 changes_made = true;
             } else {
@@ -833,7 +714,7 @@ public class Program2 extends AppCompatActivity {
                     break;
             }
             if (loadSpinners > 23) {
-                Changes_1[i].setValue(pos);
+                Changes_1[i].setValue1((short) pos);
                 Changes_Bool_1[i] = true;
                 changes_made = true;
             } else {

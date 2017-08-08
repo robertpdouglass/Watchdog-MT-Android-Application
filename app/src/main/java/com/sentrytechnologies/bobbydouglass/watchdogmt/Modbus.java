@@ -14,8 +14,8 @@ public class Modbus extends SQLiteOpenHelper {
     int type;
     int address;
     boolean saved = false;
-    int value1;
-    long value2;
+    short value1;
+    int value2;
     float value3;
     String value4;
 
@@ -109,9 +109,9 @@ public class Modbus extends SQLiteOpenHelper {
         c.moveToFirst();
         int i = 2;
         for(int j = 0; j < Modbus_Values.Size_1; j++, i++)
-            Modbus_Values.Modbus_1[j] = c.getInt(i);
+            Modbus_Values.Modbus_1[j] = (short) (c.getInt(i));
         for(int j = 0; j < Modbus_Values.Size_2; j++, i++)
-            Modbus_Values.Modbus_2[j] = c.getLong(i);
+            Modbus_Values.Modbus_2[j] = c.getInt(i);
         for(int j = 0; j < Modbus_Values.Size_3; j++, i++)
             Modbus_Values.Modbus_3[j] = c.getFloat(i);
         for(int j = 0; j < Modbus_Values.Size_4; j++, i++)
@@ -169,19 +169,21 @@ public class Modbus extends SQLiteOpenHelper {
 
     public int getAddress() { return address; }
 
-    public int getValue1() { return value1; }
+    public short getValue1() { return value1; }
 
-    public long getValue2() { return value2; }
+    public int getValue2() { return value2; }
 
     public float getValue3() { return value3; }
 
     public String getValue4() { return value4; }
 
-    public void setValue(int val) { value1 = val; }
+    public void setValue1(short val) { value1 = val; }
 
-    public void setValue(long val) { value2 = val; }
+    public void setValue2(int val) { value2 = val; }
 
-    public void setValue(float val) { value3 = val; }
+    public void setValue3(float val) { value3 = val; }
 
-    public void setValue(String val) { value4 = val; }
+    public void setValue4(String val) { value4 = val; }
+
+    public int getType() { return type; }
 }

@@ -25,28 +25,18 @@ public class Program extends AppCompatActivity {
     int loadSpinners =                          1;
 
     public static final int Size_1 =            16;
-    public static final int Size_2 =            0;
     public static final int Size_3 =            8;
-    public static final int Size_4 =            16;
 
     public static Modbus[] Changes_1 =          new Modbus[Size_1];
-    public static Modbus[] Changes_2 =          new Modbus[Size_2];
     public static Modbus[] Changes_3 =          new Modbus[Size_3];
-    public static Modbus[] Changes_4 =          new Modbus[Size_4];
 
     public static boolean[] Changes_Bool_1 =   {false,  false,  false,  false,  false,  false,  false,  false,
                                                 false,  false,  false,  false,  false,  false,  false,  false};
-    public static boolean[] Changes_Bool_2 =    null;
     public static boolean[] Changes_Bool_3 =   {false,  false,  false,  false,  false,  false,  false,  false};
-    public static boolean[] Changes_Bool_4 =   {false,  false,  false,  false,  false,  false,  false,  false,
-                                                false,  false,  false,  false,  false,  false,  false,  false};
 
     int[] Address_1 =                          {10100,  10102,  10104,  10106,  10108,  10110,  10112,  10114,
                                                 12000,  12001,  12002,  12003,  12004,  12005,  12006,  12007};
-    int[] Address_2 =                           null;
     int[] Address_3 =                          {14000,  14001,  14002,  14003,  14004,  14005,  14006,  14007};
-    int[] Address_4 =                          {16000,  16001,  16002,  16003,  16004,  16005,  16006,  16007,
-                                                15600,  15601,  15602,  15603,  15604,  15605,  15606,  15607};
 
     boolean changes_made =                      false;
 
@@ -63,10 +53,6 @@ public class Program extends AppCompatActivity {
                 Screen1();
             else if(position == 2)
                 Screen2();
-            else if(position == 3)
-                Screen3();
-            else if(position == 4)
-                Screen4();
             else
                 Toast.makeText(this, "OUT OF BOUNDS", Toast.LENGTH_SHORT).show();
         }
@@ -75,21 +61,15 @@ public class Program extends AppCompatActivity {
     }
 
     public void mvRight(View view) {
-        if(position > 0 && position < 5) {
+        if(position > 0 && position < 3) {
             position++;
             if(position == 2)
                 Screen2();
             else if(position == 3)
-                Screen3();
-            else if(position == 4) {
                 if(pulseLoad)
-                    Screen4();
+                    Screen3();
                 else
                     Toast.makeText(this, "Pulse Multiplier Not Selected For Any Inputs", Toast.LENGTH_SHORT).show();
-            }
-            else if(position == 5) {
-                Screen5();
-            }
             else
                 Toast.makeText(this, "OUT OF BOUNDS", Toast.LENGTH_SHORT).show();
         }
@@ -119,7 +99,7 @@ public class Program extends AppCompatActivity {
         for(int i = 0; i < 8; i++) {
             dropdown[i].setAdapter(adapter);
             dropdown[i].setOnItemSelectedListener(onSpinner);
-            if(Changes_1[i].getValue1() == 3) {
+            if(((int) Changes_1[i].getValue1()) == 3) {
                 pulseIndividual[i] = true;
                 pulseLoad = true;
             }
@@ -144,22 +124,20 @@ public class Program extends AppCompatActivity {
                                 (EditText) findViewById(R.id.edittext10), (EditText) findViewById(R.id.edittext12),
                                 (EditText) findViewById(R.id.edittext14), (EditText) findViewById(R.id.edittext16)};
         for(int i = 0; i < 8; i++) {
-            seconds[i].setText("" + (Changes_1[i + 8].getValue1()) % 60);
-            minutes[i].setText("" + (Changes_1[i + 8].getValue1()) / 60);
+            seconds[i].setText("" + (Changes_1[i + 8].getValue1() % 60));
+            minutes[i].setText("" + (Changes_1[i + 8].getValue1() / 60));
             final int index = i + 8;
             final Modbus temp = Changes_1[index];
             minutes[i].addTextChangedListener(new TextWatcher() {
                 @Override
                 public void afterTextChanged(Editable s) {}
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(s.length() != 0) {
                         int seconds = (temp.getValue1() % 60) + (Integer.parseInt(s.toString()) * 60);
-                        Changes_1[index].setValue(seconds);
+                        Changes_1[index].setValue1((short) seconds);
                         Changes_Bool_1[index] = true;
                         changes_made = true;
                     }
@@ -168,15 +146,13 @@ public class Program extends AppCompatActivity {
             seconds[i].addTextChangedListener(new TextWatcher() {
                 @Override
                 public void afterTextChanged(Editable s) {}
-
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     if(s.length() != 0) {
                         int seconds = (temp.getValue1() / 60) + (Integer.parseInt(s.toString()));
-                        Changes_1[index].setValue(seconds);
+                        Changes_1[index].setValue1((short) seconds);
                         Changes_Bool_1[index] = true;
                         changes_made = true;
                     }
@@ -186,44 +162,6 @@ public class Program extends AppCompatActivity {
     }
 
     public void Screen3() {
-        if(!loaded[2]) {
-            loaded[2] = true;
-            for(int i = 0; i < 8; i++) {
-                Changes_4[i] = new Modbus(getApplicationContext(), Address_4[i], 4);
-            }
-        }
-
-        setContentView(R.layout.local_input_name);
-
-        EditText[] name =  {(EditText) findViewById(R.id.edittext1), (EditText) findViewById(R.id.edittext2),
-                            (EditText) findViewById(R.id.edittext3), (EditText) findViewById(R.id.edittext4),
-                            (EditText) findViewById(R.id.edittext5), (EditText) findViewById(R.id.edittext6),
-                            (EditText) findViewById(R.id.edittext7), (EditText) findViewById(R.id.edittext8)};
-
-        for(int i = 0; i < 8; i++) {
-            name[i].setText("" + Changes_4[i].getValue4());
-            final int index = i;
-            final Modbus temp = Changes_4[index];
-            name[i].addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(Editable s) {}
-
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if(count != 0 && count < 17) {
-                        Changes_4[index].setValue(s.toString());
-                        Changes_Bool_4[index] = true;
-                        changes_made = true;
-                    }
-                }
-            });
-        }
-    }
-
-    public void Screen4() {
         setContentView(R.layout.local_input_pulse);
 
         EditText[] pulse = {(EditText) findViewById(R.id.edittext1), (EditText) findViewById(R.id.edittext2),
@@ -248,14 +186,12 @@ public class Program extends AppCompatActivity {
                 pulse[i].addTextChangedListener(new TextWatcher() {
                     @Override
                     public void afterTextChanged(Editable s) {}
-
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         if(s.length() != 0) {
-                            Changes_3[index].setValue(Float.parseFloat(s.toString()));
+                            Changes_3[index].setValue3(Float.parseFloat(s.toString()));
                             Changes_Bool_3[index] = true;
                             changes_made = true;
                         }
@@ -268,50 +204,6 @@ public class Program extends AppCompatActivity {
             }
         }
 
-    }
-
-    public void Screen5() {
-        setContentView(R.layout.local_input_units);
-
-        EditText[] pulse = {(EditText) findViewById(R.id.edittext1), (EditText) findViewById(R.id.edittext2),
-                (EditText) findViewById(R.id.edittext3), (EditText) findViewById(R.id.edittext4),
-                (EditText) findViewById(R.id.edittext5), (EditText) findViewById(R.id.edittext6),
-                (EditText) findViewById(R.id.edittext7), (EditText) findViewById(R.id.edittext8)};
-
-        for(int i = 0; i < 8; i++) {
-            if(pulseIndividual[i]) {
-                pulse[i].setClickable(true);
-                pulse[i].setEnabled(true);
-
-                if(!loaded5[i]) {
-                    loaded5[i] = true;
-                    Changes_4[i + 8] = new Modbus(getApplicationContext(), Address_4[i + 8], 4);
-                }
-
-                pulse[i].setText(Changes_4[i + 8].getValue4());
-
-                final int index = i + 8;
-                final Modbus temp = Changes_4[index];
-                pulse[i].addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void afterTextChanged(Editable s) {}
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        if(s.length() != 0) {
-                            Changes_4[index].setValue(Float.parseFloat(s.toString()));
-                            Changes_Bool_4[index] = true;
-                            changes_made = true;
-                        }
-                    }
-                });
-            }
-            else {
-                pulse[i].setClickable(false);
-                pulse[i].setEnabled(false);
-            }
-        }
     }
 
     AdapterView.OnItemSelectedListener onSpinner = new AdapterView.OnItemSelectedListener() {
@@ -345,7 +237,7 @@ public class Program extends AppCompatActivity {
                     break;
             }
             if(loadSpinners > 7) {
-                Changes_1[i].setValue(pos);
+                Changes_1[i].setValue1((short) pos);
                 Changes_Bool_1[i] = true;
                 changes_made = true;
                 if(Changes_1[i].getValue1() == 3) {
