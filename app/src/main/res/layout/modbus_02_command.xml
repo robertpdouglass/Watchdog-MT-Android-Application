@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#8c8c8c"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:textSize="50dp"
+        android:textColor="#a00000"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
+        android:text="Watchdog MT" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/command"
+        android:text="COMMAND"
+        android:layout_marginBottom="10dp"
+        android:textSize="25sp"
+        android:textColor="#a00000"
+        android:layout_below="@id/textView" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/command"
+        android:layout_above="@+id/gridLayout"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_1"
+                    android:text="Register 1"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_1"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_2"
+                    android:text="Register 2"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_2"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_3"
+                    android:text="Register 3"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_3"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_4"
+                    android:text="Register 4"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_4"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_5"
+                    android:text="Register 5"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_5"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_6"
+                    android:text="Register 6"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_6"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_7"
+                    android:text="Register 7"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_7"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_8"
+                    android:text="Register 8"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_8"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_9"
+                    android:text="Register 9"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_9"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_10"
+                    android:text="Register 10"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_10"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_11"
+                    android:text="Register 11"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_11"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_12"
+                    android:text="Register 12"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_12"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_13"
+                    android:text="Register 13"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_13"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_14"
+                    android:text="Register 14"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_14"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_15"
+                    android:text="Register 15"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_15"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_16"
+                    android:text="Register 16"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_16"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_17"
+                    android:text="Register 17"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_17"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_18"
+                    android:text="Register 18"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_18"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_19"
+                    android:text="Register 19"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_19"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_20"
+                    android:text="Register 20"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_20"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_21"
+                    android:text="Register 21"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_21"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_22"
+                    android:text="Register 22"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_22"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_23"
+                    android:text="Register 23"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_23"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textSize="15sp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/command_text_24"
+                    android:text="Register 24"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginLeft="25dp"/>
+
+                <Spinner
+                    android:id="@+id/command_spinner_24"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:elevation="2dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/material_spinner_bg"
+                    android:popupBackground="@drawable/material_spinner_bg"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/gridLayout"
+        android:columnCount="3"
+        android:rowCount="1"
+        android:layout_marginTop="15dp"
+        android:foregroundGravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_height="0dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/material_button_grey"
+            android:text="Left"
+            android:elevation="2dp"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:onClick="left"/>
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/material_button_grey"
+            android:text="Cancel"
+            android:elevation="2dp"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:onClick="back"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/material_button_grey"
+            android:text="Right"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:elevation="2dp"
+            android:onClick="right"/>
+    </GridLayout>
+</RelativeLayout>

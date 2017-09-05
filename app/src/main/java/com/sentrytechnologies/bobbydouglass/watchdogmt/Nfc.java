@@ -27,7 +27,7 @@ public class Nfc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nfc);
 
-        info = (TextView) findViewById(R.id.textView13);
+        info = (TextView) findViewById(R.id.nfc_textView);
         nfcAdapter = nfcAdapter.getDefaultAdapter(this);
         info.setText("Touch Watchdog MT to apply changes");
     }
@@ -107,23 +107,31 @@ public class Nfc extends AppCompatActivity {
     private NdefMessage createNdefMessage() {
         ArrayList<NdefRecord> ndef = new ArrayList<NdefRecord>();
         if(Home.Selected == 1) {
-            for (int i = 0; i < Program.Size_1; i++) {
-                if(Program.Changes_Bool_1[i])
-                    ndef.add(createRecord1(Program.Changes_1[i].getAddress(), Program.Changes_1[i].getValue1()));
-            }
-            for (int i = 0; i < Program.Size_3; i++) {
-                if(Program.Changes_Bool_3[i])
-                    ndef.add(createRecord3(Program.Changes_3[i].getAddress(), Program.Changes_3[i].getValue3()));
+            for (int x = 0; x < Program.SizeX; x++) {
+                for (int y = 0; y < Program.SizeY; y++) {
+                    if (Program.Changes_Bool[x][y]) {
+                        if (Program.Changes_Type[x] == 1) {
+                            ndef.add(createRecord1(Program.Changes[x][y].getAddress(), Program.Changes[x][y].getValue1()));
+                        }
+                        else if(Program.Changes_Type[x] == 3) {
+                            ndef.add(createRecord3(Program.Changes[x][y].getAddress(), Program.Changes[x][y].getValue3()));
+                        }
+                    }
+                }
             }
         }
         else {
-            for (int i = 0; i < Program2.Size_1; i++) {
-                if(Program2.Changes_Bool_1[i])
-                    ndef.add(createRecord1(Program2.Changes_1[i].getAddress(), Program2.Changes_1[i].getValue1()));
-            }
-            for (int i = 0; i < Program2.Size_3; i++) {
-                if(Program2.Changes_Bool_3[i])
-                    ndef.add(createRecord3(Program2.Changes_3[i].getAddress(), Program2.Changes_3[i].getValue3()));
+            for (int x = 0; x < Program2.SizeX; x++) {
+                for (int y = 0; y < Program2.SizeY; y++) {
+                    if (Program2.Changes_Bool[x][y]) {
+                        if (Program2.Changes_Type[x] == 1) {
+                            ndef.add(createRecord1(Program2.Changes[x][y].getAddress(), Program2.Changes[x][y].getValue1()));
+                        }
+                        else if(Program2.Changes_Type[x] == 3) {
+                            ndef.add(createRecord3(Program2.Changes[x][y].getAddress(), Program2.Changes[x][y].getValue3()));
+                        }
+                    }
+                }
             }
         }
         NdefRecord[] ndefr = new NdefRecord[ndef.size()];
@@ -178,30 +186,22 @@ public class Nfc extends AppCompatActivity {
     public void save() {
         JSON json = new JSON();
         if(Home.Selected == 1) {
-            for (int i = 0; i < Program.Size_1; i++) {
-                if (Program.Changes_Bool_1[i]) {
-                    Program.Changes_1[i].save();
-                    json.addModbus(Program.Changes_1[i]);
-                }
-            }
-            for (int i = 0; i < Program.Size_3; i++) {
-                if (Program.Changes_Bool_3[i]) {
-                    Program.Changes_3[i].save();
-                    json.addModbus(Program.Changes_3[i]);
+            for (int x = 0; x < Program.SizeX; x++) {
+                for(int y = 0; y < Program.SizeY; y++) {
+                    if (Program.Changes_Bool[x][y]) {
+                        Program.Changes[x][y].save();
+                        json.addModbus(Program.Changes[x][y]);
+                    }
                 }
             }
         }
         else {
-            for (int i = 0; i < Program2.Size_1; i++) {
-                if (Program2.Changes_Bool_1[i]) {
-                    Program2.Changes_1[i].save();
-                    json.addModbus(Program2.Changes_1[i]);
-                }
-            }
-            for (int i = 0; i < Program2.Size_3; i++) {
-                if (Program2.Changes_Bool_3[i]) {
-                    Program2.Changes_3[i].save();
-                    json.addModbus(Program2.Changes_3[i]);
+            for (int x = 0; x < Program2.SizeX; x++) {
+                for (int y = 0; y < Program2.SizeY; y++) {
+                    if (Program2.Changes_Bool[x][y]) {
+                        Program2.Changes[x][y].save();
+                        json.addModbus(Program2.Changes[x][y]);
+                    }
                 }
             }
         }

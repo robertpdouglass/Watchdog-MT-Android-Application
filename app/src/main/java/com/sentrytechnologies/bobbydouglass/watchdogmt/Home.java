@@ -23,7 +23,7 @@ public class Home extends AppCompatActivity {
             firstTime = true;
             settings.edit().putBoolean("firstTime", false).commit();
         }
-        new Modbus(getApplicationContext(), true);
+        new Modbus(getApplicationContext(), firstTime);
 
         Selected = -1;
     }
@@ -34,7 +34,9 @@ public class Home extends AppCompatActivity {
         System.exit(0);
     }
 
-    public void status(View view) { startActivity(new Intent(this, Status.class)); }
+    public void status(View view) {
+        startActivity(new Intent(this, Status.class));
+    }
 
     public void local(View view) {
         Selected = 1;
@@ -44,5 +46,9 @@ public class Home extends AppCompatActivity {
     public void modbus(View view) {
         Selected = 2;
         startActivity(new Intent(this, Program2.class));
+    }
+
+    public void settings(View view) {
+
     }
 }

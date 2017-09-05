@@ -6,9 +6,13 @@ import android.content.IntentFilter;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import java.io.UnsupportedEncodingException;
@@ -27,12 +31,34 @@ public class Status extends AppCompatActivity {
 
         setContentView(R.layout.read_status);
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        read = (TextView) findViewById(R.id.textView);
+        read = (TextView) findViewById(R.id.status_textView);
         tgl = (ToggleButton) findViewById(R.id.toggleButton);
+
+        tgl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    if (Build.VERSION.SDK_INT >= 22)
+                        tgl.setBackground(getDrawable(R.drawable.material_toggle_on));
+                    else
+                        tgl.setBackground(getResources().getDrawable(R.drawable.material_toggle_on));
+                }
+                else {
+                    if (Build.VERSION.SDK_INT >= 22)
+                        tgl.setBackground(getDrawable(R.drawable.material_toggle_off));
+                    else
+                        tgl.setBackground(getResources().getDrawable(R.drawable.material_toggle_off));
+                }
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(this, Home.class));
+    }
+
+    public void back(View view) {
         startActivity(new Intent(this, Home.class));
     }
 
@@ -60,16 +86,18 @@ public class Status extends AppCompatActivity {
         NdefRecord[] ndefRecords = ndefMessage.getRecords();
         String[] outputs = new String[ndefRecords.length];
         for(int i = 0; i < ndefRecords.length; i++) {
-            if(!tgl.isChecked())
-                outputs[i] = getTextFromNdefRecordStatus(ndefRecords[i]);
-            else
+            if(tgl.isChecked())
                 outputs[i] = getTextFromNdefRecordDebug(ndefRecords[i]);
+            else
+                outputs[i] = getTextFromNdefRecordStatus(ndefRecords[i]);
         }
 
         String temp = "";
         for(int i = 0; i < ndefRecords.length; i++)
             temp = temp + "\n" + "\n" + outputs[i];
 
+        read.setTextSize(15);
+        read.setGravity(Gravity.LEFT | Gravity.TOP);
         read.setText(temp);
     }
 

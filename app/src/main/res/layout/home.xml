@@ -3,72 +3,73 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#8c8c8c"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:textSize="50dp"
-        android:textColor="#ff0000"
+        android:layout_height="75dp"
+        android:textSize="50sp"
+        android:textColor="#a00000"
         android:gravity="center"
-        android:layout_margin="15dp"
+        android:layout_marginBottom="15dp"
         android:text="Watchdog MT" />
 
-    <Button
-        android:text="Read Status"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button1"
-        android:background="@drawable/material_button_grey"
-        android:onClick="status"
-        android:layout_above="@+id/button2"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:text="Make Local Input Changes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:background="@drawable/material_button_grey"
-        android:onClick="local"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp"
-        android:layout_above="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            android:text="Read Status"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:id="@+id/button1"
+            android:layout_marginBottom="15dp"
+            android:textSize="15sp"
+            android:background="@drawable/material_button_grey"
+            android:elevation="2dp"
+            android:textColor="#ffffff"
+            android:onClick="status"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Make Modbus Changes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button3"
-        android:background="@drawable/material_button_grey"
-        android:onClick="modbus"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp"
-        android:layout_above="@+id/button4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/material_button_grey"
+            android:elevation="2dp"
+            android:textSize="15sp"
+            android:onClick="local"
+            android:text="Make Local Input Changes"
+            android:textColor="#ffffff" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/material_button_grey"
-        android:onClick="settings"
-        android:text="Settings"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/material_button_grey"
+            android:elevation="2dp"
+            android:textSize="15sp"
+            android:onClick="modbus"
+            android:text="Make Modbus Changes"
+            android:textColor="#ffffff" />
 
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/material_button_grey"
+            android:elevation="2dp"
+            android:textSize="15sp"
+            android:onClick="settings"
+            android:text="Settings"
+            android:textColor="#ffffff" />
+    </LinearLayout>
 </RelativeLayout>
